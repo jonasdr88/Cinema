@@ -2,10 +2,10 @@
  * Created by jonas on 30-3-2016.
  */
 public class Engine {
-    public Reservatie r;
+    public Reservatie reservatie;
 
     public Engine() {
-        r = new Reservatie();
+        reservatie = new Reservatie();
         MaakZaal();
 
     }

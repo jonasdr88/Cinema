@@ -22,19 +22,6 @@ public class Main {
         gui.setTitle("Cinematickets reserveren");
 
         // DOMEIN CODE
-
-        GUI_venster1 vens1 = gui.getVenster1();
-        saveFilm(vens1, e);
-        String s = e.r.getFilm();
-        System.out.println(s);
-    }
-
-    public static void saveFilm(GUI_venster1 g1, Engine e) {
-        e.r.AddFilm(g1.getGekozenFilm());
-    }
-
-    public static void saveVersie(GUI_venster1 gui1, Engine e) {
-        e.r.AddVersie(gui1.getGekozenVersie());
     }
 
 }

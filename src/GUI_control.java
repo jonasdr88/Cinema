@@ -10,7 +10,7 @@ public class GUI_control extends JFrame {
     JPanel v1;
     JPanel v2;
     JPanel v3;
-    Engine e;
+    Engine engine;
     JMenuBar menubar;
     JMenu programma, help;
     JMenuItem sluiten, contact;
@@ -27,7 +27,7 @@ public class GUI_control extends JFrame {
         v1 = new GUI_venster1();
         v2 = new GUI_venster2();
         v3 = new GUI_venster3();
-        e = new Engine();
+        engine = new Engine();
 
         maakMenu();
         this.setLayout(new BorderLayout());
