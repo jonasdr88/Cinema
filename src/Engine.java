@@ -25,7 +25,7 @@ public class Engine {
     }
 
     public Reservatie getReservatie() {
-        return r;
+        return reservatie;
     }
 
     public void testStudent() {

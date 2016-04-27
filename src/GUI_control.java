@@ -170,6 +170,8 @@ public class GUI_control extends JFrame {
                 if (!((GUI_venster1) currentPanel).checkOfFilmEnVersieGeselecteerdIs())
                     JOptionPane.showMessageDialog(null, "Selecteer een film en versie a.u.b.");
                 else {
+                    saveFilm((GUI_venster1) v1, engine);
+                    saveVersie((GUI_venster1) v1, engine);
                     this.remove(currentPanel);
                     setCurrentPanel(v2);
                     this.add(currentPanel);
@@ -189,6 +191,13 @@ public class GUI_control extends JFrame {
                 if (!((GUI_venster2) currentPanel).checkAantalGekozenPlaatsen())
                     JOptionPane.showMessageDialog(null, "Het aantal tickets moet overeenkomen met het aantal plaatsen in de zaal.");
                 else {
+                    savePersonen((GUI_venster2) v2, engine);
+                    //System.out.println(engine.reservatie.getAantalBej()+"" +""+ engine.reservatie.getAantalSt()+"" +""+ engine.reservatie.getAantalVolw());
+                    savePlaatsen((GUI_venster2) v2, engine);
+                   /* int azer = (GUI_venster2)v2.
+                    for(int thomasisnenhomo=0;thomasisnenhomo<50;thomasisnenhomo++){
+                        System.out.println(engine.reservatie.plaatsen);
+                    }*/
                     btnVolgende.setText("Betalen");
                     this.remove(currentPanel);
                     setCurrentPanel(v3);
@@ -229,6 +238,24 @@ public class GUI_control extends JFrame {
 
     public GUI_venster3 getVenster3() {
         return (GUI_venster3) v3;
+    }
+
+    public void saveFilm(GUI_venster1 v1, Engine e) {
+        engine.reservatie.AddFilm(v1.getGekozenFilm());
+    }
+
+    public void saveVersie(GUI_venster1 v1, Engine e) {
+        engine.reservatie.AddVersie(v1.getGekozenVersie());
+    }
+
+    public void savePersonen(GUI_venster2 v2, Engine e) {
+        engine.reservatie.AddBejaarde(v2.getAantalGepensioneerden());
+        engine.reservatie.AddStudent(v2.getAantalStudenten());
+        engine.reservatie.AddVolwassene(v2.getAantalVolwassenen());
+    }
+
+    public void savePlaatsen(GUI_venster2 v2, Engine e) {
+        engine.reservatie.Addplaatsen(v2.volzet);
     }
 
     /**

@@ -75,8 +75,4 @@ public class GUI_venster3 extends JPanel {
     public boolean checkOfAllesIngevuldIs() {
         return (betaalmethodes.getSelection() != null) && !(email.getText().equals("")) && (email.getText().contains("@"));
     }
-
-    public void jonastest() {
-        System.out.println("venster 3 check");
-    }
 }

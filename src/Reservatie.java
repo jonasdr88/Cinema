@@ -6,6 +6,7 @@ public class Reservatie {
     int aantalSt;
     int aantalBej;
     int aantalVolw;
+    int[] plaatsen = new int[50];
     private String defilm;
     private String deversie;
 
@@ -16,10 +17,6 @@ public class Reservatie {
         defilm = f;
     }
 
-    public String getFilm() {
-        return defilm;
-    }
-
     public void AddVersie(String v) {
         deversie = v;
     }
@@ -28,24 +25,26 @@ public class Reservatie {
         aantalSt = aantal;
     }
 
-    public void RemoveStudent() {
-        aantalSt--;
-    }
-
     public void AddVolwassene(int aantal) {
         aantalVolw = aantal;
     }
 
-    public void RemoveVolwassene() {
-        aantalVolw--;
-    }
-
-    public void addBejaarde(int aantal) {
+    public void AddBejaarde(int aantal) {
         aantalBej = aantal;
     }
 
-    public void removeBejaarde() {
-        aantalBej--;
+    public void Addplaatsen(int[] volzet) {
+        int k = 0;
+        for (int i = 0; i < 50; i++) {
+            if (volzet[i] != 0) {
+                plaatsen[k] = volzet[i];
+                k++;
+            }
+        }
+    }
+
+    public String getFilm() {
+        return defilm;
     }
 
     public String getVersie() {
@@ -76,4 +75,6 @@ public class Reservatie {
 
         return p;
     }
+
+
 }

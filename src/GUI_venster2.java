@@ -11,7 +11,8 @@ import java.awt.event.MouseEvent;
 public class GUI_venster2 extends JPanel {
     JSpinner spinnerStudent, spinnerVolwassen, spinnerGepensioneerd;
     int aantalStudenten = 0, aantalVolwassenen = 0, aantalGepensioneerden = 0;
-    int aantalGereserveerdeStoelen;
+    int aantalGereserveerdeStoelen = 0;
+    int[] volzet = new int[50];
     private JLabel labelVolwassen, labelStudent, labelGepensioneerd, labelAantalTickets, labelPlaatsenKiezen;
 
     public GUI_venster2() {
@@ -20,6 +21,8 @@ public class GUI_venster2 extends JPanel {
         plaatsComponentenVenster2();
         addEventListeners();
         checkAantalGekozenPlaatsen();
+        for (int i = 0; i < 50; i++)
+            volzet[i] = 0;
     }
 
     /**
@@ -72,7 +75,6 @@ public class GUI_venster2 extends JPanel {
 
         JPanel stoelenPaneel = new JPanel(new GridLayout(5, 10));
         int zetelnr = 0;
-        aantalGereserveerdeStoelen = 0;
         for (int rij = 0; rij < 5; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
                 zetelnr++;
@@ -84,10 +86,13 @@ public class GUI_venster2 extends JPanel {
                         boolean gereserveerd = false;
                         if (!gereserveerd) {
                             if (cinemaLabel.getBackground() == Color.green) {
-                                aantalGereserveerdeStoelen++;
                                 cinemaLabel.setBackground(Color.red);
                                 cinemaLabel.setForeground(Color.orange);
+                                volzet[cinemaLabel.labelnr] = cinemaLabel.labelnr;
+                                aantalGereserveerdeStoelen++;
+
                             } else {
+                                volzet[cinemaLabel.labelnr] = 0;
                                 aantalGereserveerdeStoelen--;
                                 cinemaLabel.setBackground(Color.green);
                                 cinemaLabel.setForeground(Color.blue);
@@ -152,9 +157,8 @@ public class GUI_venster2 extends JPanel {
         return som == aantalGereserveerdeStoelen;
     }
 
-
-    public void jonastest() {
-        System.out.println("venster 2 check");
+    public int getAantalGereserveerdeStoelen() {
+        return aantalGereserveerdeStoelen;
     }
 
 }

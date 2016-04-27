@@ -80,7 +80,7 @@ public class GUI_venster1 extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gekozenFilm = groepFilms.getSelection().getActionCommand();
-                System.out.println("Gekozen film: " + gekozenFilm);
+                //System.out.println("Gekozen film: " + gekozenFilm);
             }
         }
 
@@ -125,9 +125,6 @@ public class GUI_venster1 extends JPanel {
         return gekozenVersie;
     }
 
-    public void jonastest() {
-        System.out.println("venster 1 check");
-    }
 
 
 }
